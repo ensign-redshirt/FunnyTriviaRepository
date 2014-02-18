@@ -1,0 +1,4 @@
+FunnyTriviaRepository
+=====================
+
+Database for trivia
