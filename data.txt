@@ -52,13 +52,8 @@ Donald Duck's middle name is Fauntleroy.
 
 
 Sayings
-A journey of a thousand sites begins with a single click. 
+
 "Criminal lawyer" is a redundancy. 
-
-
-
-
-QUOTES
 Youth is such a wonderful thing.  What a crime to waste it on children.
 -- George Bernard Shaw
 A mathematician knows how to solve a problem, but can't do it. — Milne 
@@ -73,6 +68,13 @@ An empty man is full of himself. — Edward Abbey 
 Flattery is like cologne: To be smelled, but not swallowed. — Josh Billings 
 The whole world is a tuxedo and you are a pair of brown shoes. -- George Gobel
 I spilled spot remover on my dog. He's gone now. – Steven Wright
+When I said that I cleaned my room, I just meant I made a path from the doorway to my bed.
+Friday is my second favorite F word.
+I'm not clumsy! The floor just hates me, the table and chairs are bullies, and the walls get in my way.
+When I die, I want to go peacefully like my grandfather did-in his sleep. Not yelling and screaming like the passengers in his car. -- Bob Monkhouse
+Always borrow money from a pessimist. He won't expect it back. -- Oscar Wilde
+I love deadlines. I like the whooshing sound they make as they fly by. -- Douglas Adams
+
 
 
 Fortune cookies:
@@ -108,6 +110,7 @@ When an agnostic dies, does he go to the "great perhaps"?
 Why is the time of day with the slowest traffic called rush hour?
 Atheism is a nonprophet organization.
 And whose cruel idea was it for the word "Lisp" to have an "S" in it?
+A journey of a thousand sites begins with a single click. 
 
 
 
