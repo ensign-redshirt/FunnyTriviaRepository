@@ -1,6 +1,6 @@
 Meme
     numId
-    link to where it was found
+    imageLink to where it was found
     when it was first viewed
     text
     
