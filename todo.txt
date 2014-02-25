@@ -1,0 +1,10 @@
+TO DO:
+Ability to add to the database by site visitors
+Ability to generate random trivia by site visitors
+Ability to edit trivia by site visitors
+Ability to delete only for site administrators
+Ability to search tables by site visitors
+Display random 5 facts on main page 
+Create column names and types for tables
+Search page for website
+Random trivia generator page for website
