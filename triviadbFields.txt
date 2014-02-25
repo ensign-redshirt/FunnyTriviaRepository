@@ -1,0 +1,26 @@
+Meme
+    numId
+    imageLink to where it was found
+    when it was first viewed
+    text
+    
+Trivia
+    numId
+    text
+
+Sayings
+    numId
+    text
+    first sayer
+    "genre"
+
+Fortune Cookies
+    numId
+    text
+
+Laws
+    numId
+    state
+    text
+    found date
+
