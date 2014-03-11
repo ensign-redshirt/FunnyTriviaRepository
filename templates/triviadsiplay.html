@@ -3,7 +3,9 @@
 {% block content %}
 <h1>Thanks for Requesting {{ trivia }} Trivia! 
   <br/><br/>
-  {{rows}}
+  {% for entry in rows %}
+  {{entry['content']}}
+  {% endfor %}
   <br/><br/>
   We'll get back to you with more soon!!</h1>
 {% endblock %}
