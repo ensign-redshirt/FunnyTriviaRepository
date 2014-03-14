@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Thanks for Requesting {{ trivia }} Trivia! 
+<h1>Thanks for Requesting {{ trivia }} Trivia! </h1>
   <br/><br/>
   {% for entry in rows %}
-  {{entry['content']}}
+{{entry['content']}} {% if "author" in entry %}  -- {{entry['author']}} {%endif%} {% if "state" in entry%} Law is from {{entry['state']}} {%endif%}
   {% endfor %}
   <br/><br/>
-  We'll get back to you with more soon!!</h1>
+
 {% endblock %}
