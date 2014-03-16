@@ -24,7 +24,8 @@
             <a href="/">Home</a></li>
           <li  {% if selectedMenu == "trivia" %} class="selected" {% endif %}  >
             <a href="/trivia">Come get yer trivia!</a></li>
-          
+          <li {% if selectedMenu == "Random" %} class="selected" {% endif %}  >
+            <a href="/trivia">Randomizer!</a></li>
           
         </ul>
       </div>
