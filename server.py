@@ -3,8 +3,8 @@ from collections import defaultdict
 import utils, MySQLdb, random
 app = Flask(__name__)                                                                                                                                                              
                                                                                                                                                                                    
-@app.route('/')                                                                                                                                                                    
-def mainIndex():                                                                                                                                                                   
+@app.route('/')
+def mainIndex():
     return render_template('index.html', selectedMenu='Home')                                                                                                                      
                                                                                                                                                                                    
 @app.route('/trivia')                                                                                                                                                              
