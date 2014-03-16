@@ -201,3 +201,4 @@ INSERT INTO `laws` (`state`, `content`) VALUES
 --
 INSERT INTO `memes` (`imageLink`, `whenDate`,`content`) VALUES
 ('http://31.media.tumblr.com/652065496e46b017849f1672bb5e8e98/tumblr_mfnvfyduSK1rm7d3so1_500.gif','03/16/14','Everyone loves Nigel Thornberry~!');
+('http://31.media.tumblr.com/4a2ffd08aee61761d15d94de86ccfc32/tumblr_mfugp0fe6P1r2iz18o1_500.gif', '03/16/14/','SMASHING!');
