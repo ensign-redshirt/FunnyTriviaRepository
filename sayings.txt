@@ -1,19 +1,19 @@
-"Criminal lawyer" is a redundancy.	N/A
-Youth is such a wonderful thing. ÊWhat a crime to waste it on children.	George Bernard Shaw
-Base 8 is just like base 10, if you are missing two fingers.	Tom Lehrer
-A man is incomplete until he is married. After that, he is finished.	Zsa Zsa Gabor
-Beware of programmers who carry screwdrivers.	Leonard Brandwein
-A preposition is a terrible word to end a sentence with.	William Safire
-A witty saying proves nothing.	Voltaire
-A yawn is a silent shout.	G. K. Chesterton
-All generalizations are dangerous, even this one.	Alexandre Dumas
-An empty man is full of himself.	Edward Abbey
-Flattery is like cologne: To be smelled, but not swallowed.	Josh Billings
-The whole world is a tuxedo and you are a pair of brown shoes.	George Gobel
-I spilled spot remover on my dog. He's gone now.	Steven Wright
-When I said that I cleaned my room, I just meant I made a path from the doorway to my bed.	N/A
-Friday is my second favorite F word.	N/A
-I'm not clumsy! The floor just hates me, the table and chairs are bullies, and the walls get in my way.	N/A
-When I die, I want to go peacefully like my grandfather did-in his sleep. Not yelling and screaming like the passengers in his car.	Bob Monkhouse
-Always borrow money from a pessimist. He won't expect it back.	Oscar Wilde
-I love deadlines. I like the whooshing sound they make as they fly by.	Douglas Adams
+('"Criminal lawyer" is a redundancy.','N/A'),
+('Youth is such a wonderful thing. What a crime to waste it on children.','George Bernard Shaw'),
+('Base 8 is just like base 10, if you are missing two fingers.','Tom Lehrer'),
+('A man is incomplete until he is married. After that, he is finished.','Zsa Zsa Gabor'),
+('Beware of programmers who carry screwdrivers.','Leonard Brandwein'),
+('A preposition is a terrible word to end a sentence with.','William Safire'),
+('A witty saying proves nothing.','Voltaire'),
+('A yawn is a silent shout.	G. K.','Chesterton'),
+('All generalizations are dangerous, even this one.','Alexandre Dumas'),
+('An empty man is full of himself.','Edward Abbey'),
+('Flattery is like cologne: To be smelled, but not swallowed.','Josh Billings'),
+('The whole world is a tuxedo and you are a pair of brown shoes.','George Gobel'),
+('I spilled spot remover on my dog. He's gone now.','Steven Wright'),
+('When I said that I cleaned my room, I just meant I made a path from the doorway to my bed.','N/A'),
+('Friday is my second favorite F word.','N/A'),
+('I'm not clumsy! The floor just hates me, the table and chairs are bullies, and the walls get in my way.','N/A'),
+('When I die, I want to go peacefully like my grandfather did-in his sleep. Not yelling and screaming like the passengers in his car.','Bob Monkhouse'),
+('Always borrow money from a pessimist. He won't expect it back.','Oscar Wilde'),
+('I love deadlines. I like the whooshing sound they make as they fly by.','Douglas Adams'),
