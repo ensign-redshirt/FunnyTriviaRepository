@@ -25,8 +25,8 @@ def trivia2():
   elif trivia == 'Sayings':
     tCol = 'sayings'
     cur.execute('select content, author from ' + tCol + ';')
-  elif trivia == 'Memes':
-    tCol = 'memes'
+  elif trivia == 'Meme':
+    tCol = 'meme'
     cur.execute('select content from ' + tCol + ';')
   elif trivia == 'Fortune Cookies':
     tCol = 'fortuneCookies'
@@ -35,28 +35,29 @@ def trivia2():
   print rows
   return render_template('triviadisplay.html', trivia=trivia, rows=rows)
 
-@app.route('/random', methods=['POST','GET'])                                                                                                                                           
-def random():     
+@app.route('/randome', methods=['POST','GET'])                                                                                                                                           
+def randome():     
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
   trivia =  request.form.get("triviatype")
-  ranNum = random.randint(0,5)
+  ranNum = random.randrange(0,6)
   
   if ranNum == 1:
     tCol = 'laws'
     cur.execute('select content,state from '+tCol+' order by rand() limit 1')
   elif ranNum == 2:
     tCol = 'trivia'
-    cur.execute('select content,state from '+tCol+' order by rand() limit 1')
+    cur.execute('select content from '+tCol+' order by rand() limit 1')
   elif ranNum == 3:
     tCol = 'sayings'
-    cur.execute('select content,state from '+tCol+' order by rand() limit 1')
+    cur.execute('select content, author from '+tCol+' order by rand() limit 1')
   elif ranNum == 4:  
     tCol = 'fortuneCookies'
-    cur.execute('select content,state from '+tCol+' order by rand() limit 1')
+    cur.execute('select content from '+tCol+' order by rand() limit 1')
   elif ranNum == 5:  
     tCol = 'meme'
     cur.execute('select imageLink,whenDate,content from '+tCol+' order by rand() limit 1')
+  rows = cur.fetchall()
   print rows
   
   return render_template('randdisplay.html', trivia = trivia, rows = rows)

@@ -200,5 +200,5 @@ INSERT INTO `laws` (`state`, `content`) VALUES
 -- Initially fill memes table
 --
 INSERT INTO `meme` (`imageLink`, `whenDate`,`content`) VALUES
-('http:\/\/31.media.tumblr.com\/652065496e46b017849f1672bb5e8e98\/tumblr_mfnvfyduSK1rm7d3so1_500.gif','2014-03-16','Everyone loves Nigel Thornberry~!'),
-('http:\/\/31.media.tumblr.com\/4a2ffd08aee61761d15d94de86ccfc32\/tumblr_mfugp0fe6P1r2iz18o1_500.gif', '2014-03-16','SMASHING!');
+('http://31.media.tumblr.com/652065496e46b017849f1672bb5e8e98/tumblr_mfnvfyduSK1rm7d3so1_500.gif','2014-03-16','Everyone loves Nigel Thornberry~!'),
+('http://31.media.tumblr.com/4a2ffd08aee61761d15d94de86ccfc32/tumblr_mfugp0fe6P1r2iz18o1_500.gif', '2014-03-16','SMASHING!');
