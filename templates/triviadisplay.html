@@ -5,7 +5,8 @@
   <br/><br/>
   {% for entry in rows %}
 {{entry['content']}} {% if "author" in entry %}  -- {{entry['author']}} {%endif%} {% if "state" in entry%} Law is from {{entry['state']}} {%endif%}
-  {% endfor %}
+  <br><br>
+ {% endfor %}
   <br/><br/>
 
 {% endblock %}
