@@ -8,6 +8,7 @@ USE triviaDB;
 CREATE TABLE IF NOT EXISTS meme 
 ( 
   numId INT not null auto_increment,
+  primary key (numId),
   imageLink BLOB,
   whenDate DATE,
   content BLOB not null
@@ -16,12 +17,14 @@ CREATE TABLE IF NOT EXISTS meme
 CREATE TABLE IF NOT EXISTS trivia
 (
   numId INT not null auto_increment,
+  primary key (numId),
   content BLOB not null
 );
 
 CREATE TABLE IF NOT EXISTS sayings
 (
   numId INT not null auto_increment,
+  primary key (numId),
   content BLOB not null,
   author varchar(50),
   genre varchar(25)
@@ -29,12 +32,14 @@ CREATE TABLE IF NOT EXISTS sayings
 CREATE TABLE IF NOT EXISTS fortuneCookies
 (
   numId INT not null auto_increment,
+  primary key (numId),
   content BLOB not null 
 );
 
 CREATE TABLE IF NOT EXISTS laws
 (
   numId INT not null auto_increment,
+  primary key (numId),
   content BLOB not null,
   whenDate DATE,
   state varchar(25)
@@ -93,7 +98,7 @@ INSERT INTO `trivia` (`content`) VALUES
 -- Initially fill sayings table
 --
 
-INSERT INTO `sayings` (`content`, `author`, `genre`) VALUES
+INSERT INTO `sayings` (`content`, `author`) VALUES
 ('"Criminal lawyer" is a redundancy.','Unknown'),
 ('Youth is such a wonderful thing. What a crime to waste it on children.','George Bernard Shaw'),
 ('Base 8 is just like base 10, if you are missing two fingers.','Tom Lehrer'),
@@ -194,5 +199,3 @@ INSERT INTO `laws` (`state`, `content`) VALUES
 --
 -- Initially fill memes table
 --
-
-INSERT INTO `meme` (`imageLink`, `whenDate`, `content`) VALUES
