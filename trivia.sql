@@ -58,10 +58,10 @@ INSERT INTO fortuneCookies (content) VALUES ('A man who goes to bed with itchy b
 --
 
 INSERT INTO `trivia` (`content`) VALUES
-('A "jiffy" is an actual unit of time for 1/100th of a second.Â'),
-('A dime has 118 ridges around the edge.Â'),
-('A grasshopper has 100 more distinct muscles than a human.Â'),
-('An average person laughs about 15 times a day.Â'),
+('A "jiffy" is an actual unit of time for 1/100th of a second.'),
+('A dime has 118 ridges around the edge.'),
+('A grasshopper has 100 more distinct muscles than a human.'),
+('An average person laughs about 15 times a day.'),
 ('American car horns beep in the tone of F.'),
 ('A duck''s quack doesn''t echo and no one knows why.'),
 ('Mel Blanc (the voice of Bugs Bunny) was allergic to carrots.'),
