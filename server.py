@@ -40,7 +40,7 @@ def random():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
   trivia =  request.form.get("triviatype")
-  ranNum = random.randint(0,4)
+  ranNum = random.randint(0,5)
   
   if ranNum == 1:
     tCol = 'laws'
@@ -54,9 +54,12 @@ def random():
   elif ranNum == 4:  
     tCol = 'fortuneCookies'
     cur.execute('select content,state from '+tCol+' order by rand() limit 1')
+  elif ranNum == 5:  
+    tCol = 'meme'
+    cur.execute('select imageLink,whenDate,content from '+tCol+' order by rand() limit 1')
   print rows
   
-  return render_template('triviadisplay.html', trivia = trivia, rows = rows)
+  return render_template('randdisplay.html', trivia = trivia, rows = rows)
 if __name__ == '__main__':                                                                                                                                                         
     app.debug=True                                                                                                                                                                 
     app.run(host='0.0.0.0', port=3000)                                                                                                                                
