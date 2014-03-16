@@ -35,7 +35,7 @@ def trivia2():
   print rows
   return render_template('triviadisplay.html', trivia=trivia, rows=rows)
 
-@app.route('/random', methods=['POST'])                                                                                                                                           
+@app.route('/random', methods=['POST','GET'])                                                                                                                                           
 def random():     
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
