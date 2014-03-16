@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Thanks for Requesting Random Trivia! </h1>
+  <br/><br/>
+  {% for entry in rows %}
+{{entry['content']}} {% if "author" in entry %}  -- {{entry['author']}} {%endif%} {% if "state" in entry%} Law is from {{entry['state']}} {%endif%}
+  <br><br>
+ {% endfor %}
+  <br/><br/>
+
+{% endblock %}
