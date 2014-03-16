@@ -7,35 +7,35 @@ USE triviaDB;
 
 CREATE TABLE meme 
 ( 
-  numId INT,
+  numId INT not null auto_increment,
   imageLink BLOB,
   whenDate DATE,
-  content BLOB
+  content BLOB not null
 );
 
 CREATE TABLE trivia
 (
-  numId INT,
-  content BLOB
+  numId INT not null auto_increment,
+  content BLOB not null
 );
 
 CREATE TABLE sayings
 (
-  numId INT,
-  content BLOB,
+  numId INT not null auto_increment,
+  content BLOB not null,
   author varchar(50),
   genre varchar(25)
 );
 CREATE TABLE fortuneCookies
 (
-  numId INT,
-  content BLOB
+  numId INT not null auto_increment,
+  content BLOB not null 
 );
 
 CREATE TABLE laws
 (
-  numId INT,
-  content BLOB,
+  numId INT not null auto_increment,
+  content BLOB not null,
   whenDate DATE,
   state varchar(25)
 );
