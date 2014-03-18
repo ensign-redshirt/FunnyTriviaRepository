@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+<--Not complete!-->
+{% block content %}
+        <h1>Trivia Generator</h1>
+<form method = "post" action = "/submit">
+		<table>
+		       <tr><td>What type of trivia would you like to submit?</td><td> 
+					
+					<select name="triviatype">
+					<option>Laws</option>
+					<option>Trivia</option>
+					<option>Sayings</option>
+					<option>Fortune Cookies</option>
+          <option>Meme</option>
+					</select></td></tr>
+          if triviatype == "Laws"
+            <tr><td>Law</td><td><input type="text" id="law" name="law" /></td></tr>
+            <tr><td>State/Country</td><td><input type="text" id = state name="state" /></td><tr>
+          elif triviatype == "Trivia"
+             
+					<tr><td>&nbsp;</td><td><input type="submit" value="Submit your trivia!" /></td></tr>
+					</table>
+					
+					</form>
+{% endblock %}
