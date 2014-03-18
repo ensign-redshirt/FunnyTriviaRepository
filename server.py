@@ -18,19 +18,24 @@ def trivia2():
   trivia =  request.form.get("triviatype")
   if trivia == 'Laws':
     tCol = 'laws'
-    cur.execute('select content, state from ' + tCol + ';')
+    cur.execute('select content,state from '+tCol+' order by rand() limit 3')
+    #cur.execute('select content, state from ' + tCol + ';')
   elif trivia == 'Trivia':
     tCol = 'trivia'
-    cur.execute('select content from '+ tCol + ';' )
+    cur.execute('select content from '+tCol+' order by rand() limit 3')
+    #cur.execute('select content from '+ tCol + ';' )
   elif trivia == 'Sayings':
     tCol = 'sayings'
-    cur.execute('select content, author from ' + tCol + ';')
+    cur.execute('select content, author from '+tCol+' order by rand() limit 3')
+    #cur.execute('select content, author from ' + tCol + ';')
   elif trivia == 'Meme':
     tCol = 'meme'
-    cur.execute('select content, imageLink from ' + tCol + ';')
+    cur.execute('select imageLink,whenDate,content from '+tCol+' order by rand() limit 1')
+    #cur.execute('select content, imageLink from ' + tCol + ';')
   elif trivia == 'Fortune Cookies':
     tCol = 'fortuneCookies'
-    cur.execute('select content from ' + tCol + ';')
+    cur.execute('select content from '+tCol+' order by rand() limit 3')
+    #cur.execute('select content from ' + tCol + ';')
   rows = cur.fetchall()
   print rows
   return render_template('triviadisplay.html', trivia=trivia, rows=rows)
