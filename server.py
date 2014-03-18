@@ -27,7 +27,7 @@ def trivia2():
     cur.execute('select content, author from ' + tCol + ';')
   elif trivia == 'Meme':
     tCol = 'meme'
-    cur.execute('select content from ' + tCol + ';')
+    cur.execute('select content, imageLink from ' + tCol + ';')
   elif trivia == 'Fortune Cookies':
     tCol = 'fortuneCookies'
     cur.execute('select content from ' + tCol + ';')
@@ -40,7 +40,7 @@ def randome():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
   trivia =  request.form.get("triviatype")
-  ranNum = random.randrange(0,6)
+  ranNum = random.randint(1,5)
   
   if ranNum == 1:
     tCol = 'laws'
