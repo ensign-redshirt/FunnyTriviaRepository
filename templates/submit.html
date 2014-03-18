@@ -13,13 +13,13 @@
 					<option>Fortune Cookies</option>
           <option>Meme</option>
 					</select></td></tr>
-          if triviatype == "Laws"
+          {%if triviatype == "Laws"%}
             <tr><td>Law</td><td><input type="text" id="law" name="law" /></td></tr>
             <tr><td>State/Country</td><td><input type="text" id = state name="state" /></td><tr>
-          elif triviatype == "Trivia"
+          {%elif triviatype == "Trivia"%}
              
 					<tr><td>&nbsp;</td><td><input type="submit" value="Submit your trivia!" /></td></tr>
 					</table>
-					
+	{%endif%}				
 					</form>
 {% endblock %}
