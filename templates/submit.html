@@ -11,23 +11,8 @@
 					<option>Trivia</option>
 					<option>Sayings</option>
 					<option>Fortune Cookies</option>
-     				        <option>Meme</option>
+     			                <option>Meme</option>
 					</select></td></tr>
-          {%if triviatype == "Laws"%}
-            <tr><td>Law</td><td><input type="text" id="law" name="law" /></td></tr>
-            <tr><td>State/Country</td><td><input type="text" id = state name="state" /></td><tr>
-          {%elif triviatype == "Trivia"%}
-            <tr><td>Trivia:</td><td><input type = "text" id="trivia" name = "trivia" /></td></tr>
-          {%elif triviatype == "Sayings"%}
-            <tr><td>Saying:</td><td><input type = "text" id="saying" name = "saying" /></td></tr>
-            <tr><td>Who said it:</td><td><input type = "text" id="author" name = "author" /></td></tr>
-          {%elif triviatype == "Fortune Cookies"%}
-            <tr><td>Fortune Cookie:</td><td><input type = "text" id="cookie" name = "cookie" /></td></tr>
-          {%elif triviatype == "Meme"%}
-           <tr><td>Meme Image URL:</td><td><input type = "text" id="imageLink" name = "imageLink" /></td></tr>
-           <tr><td>Date found:</td><td><input type = "text" id="date" name = "date" /></td></tr>
-           <tr><td>Description:</td><td><input type = "text" id="about" name = "about" /></td></tr>
-	  {% endif %}
 					<tr><td>&nbsp;</td><td><input type="submit" value="Submit your trivia!" /></td></tr>
 					</table>
 					</form>

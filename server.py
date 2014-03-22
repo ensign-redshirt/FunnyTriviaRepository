@@ -1,21 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for
 from collections import defaultdict
 import utils, MySQLdb, random
-app = Flask(__name__)                                                                                                                                                              
-                                                                                                                                                                                   
+app = Flask(__name__)
+
 @app.route('/')
 def mainIndex():
-    return render_template('index.html', selectedMenu='Home')                                                                                                                      
-                                                                                                                                                                                   
-@app.route('/trivia')                                                                                                                                                              
-def report():                                                                                                                                                                      
-  return render_template('findtrivia.html', selectedMenu='trivia')                                                                                                                     
+    return render_template('index.html', selectedMenu='Home')
+
+@app.route('/trivia')
+def report():
+  return render_template('findtrivia.html', selectedMenu='trivia')
+
 @app.route('/submit')
-
 def sumbmit():
-
   return render_template('submit.html', selectedMenu='submit')                                                                                                                                                                                   
-@app.route('/trivia2', methods=['POST'])                                                                                                                                           
+@app.route('/trivia2', methods=['POST'])
 def trivia2():     
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
