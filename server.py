@@ -10,7 +10,11 @@ def mainIndex():
 @app.route('/trivia')                                                                                                                                                              
 def report():                                                                                                                                                                      
   return render_template('findtrivia.html', selectedMenu='trivia')                                                                                                                     
-                                                                                                                                                                                   
+@app.route('/submit')
+
+def sumbmit():
+
+  return render_template('submit.html', selectedMenu='submit')                                                                                                                                                                                   
 @app.route('/trivia2', methods=['POST'])                                                                                                                                           
 def trivia2():     
   db = utils.db_connect()
