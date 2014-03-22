@@ -21,8 +21,7 @@ def trivia2():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
   trivia =  request.form.get("triviatype")
-  randnum = random.randint(1,5)
-  randnum2 = random.randint(1,5)
+
   if trivia == 'Laws':
     tCol = 'laws'
     cur.execute('select content,state from '+tCol+' order by rand() limit 3')
@@ -35,36 +34,15 @@ def trivia2():
     tCol = 'sayings'
     cur.execute('select content, author from '+tCol+' order by rand() limit 3')
     #cur.execute('select content, author from ' + tCol + ';')
-  elif trivia == 'Meme':
-    tCol = 'meme'
-    cur.execute('select imageLink,whenDate,content from '+tCol+' order by rand() limit 1')
-    #cur.execute('select content, imageLink from ' + tCol + ';')
   elif trivia == 'Fortune Cookies':
     tCol = 'fortuneCookies'
     cur.execute('select content from '+tCol+' order by rand() limit 3')
     #cur.execute('select content from ' + tCol + ';')
-  elif trivia == 'Combo-Trivia!':
-    if randnum == 1:
-      tcol = 'laws'
-    elif randnum == 2:
-      tcol = 'trivia'
-    elif randnum == 3:
-      tcol = 'sayings'
-    elif randnum == 4:
-      tcol = 'meme'
-    else:
-      tcol = 'fortuneCookies'
-    if randnum2 == 1:
-      tcol2 = 'laws'
-    elif randnum2 == 2:
-      tcol2 = 'trivia'
-    elif randnum2 == 3:
-      tcol2 = 'sayings'
-    elif randnum2 == 4:
-      tcol2 = 'meme'
-    else:
-      tcol2 = 'fortuneCookies'
-    cur.execute('select '+tcol+'.content, '+tcol2+'.content from '+tcol+' JOIN '+tcol2+' order by rand() limit 1')
+  elif trivia == 'Meme':
+    tCol = 'meme'
+    cur.execute('select content, whenDate, imageLink from '+tCol+' order by rand() limit 3')
+    #cur.execute('select content from ' + tCol + ';')
+    
   rows = cur.fetchall()
   print rows
   return render_template('triviadisplay.html', trivia=trivia, rows=rows)
@@ -96,6 +74,32 @@ def randome():
   
   return render_template('randdisplay.html', trivia = trivia, rows = rows)
 
+@app.route('/mash', methods=['POST','GET'])                                                                                                                                           
+def mash():  
+  tcol2 = 'laws'
+  randnum = random.randint(1,4)
+  randnum2 = random.randint(1,4)
+  trivia == 'Combo-Trivia!'
+    if randnum == 1:
+      tcol = 'laws'
+    elif randnum == 2:
+      tcol = 'trivia'
+    elif randnum == 3:
+      tcol = 'sayings'
+    else:  
+      tcol = 'fortuneCookies'
+    if randnum2 == 1:
+      tcol2 = 'laws'
+    elif randnum2 == 2:
+      tcol2 = 'trivia'
+    elif randnum2 == 3:
+      tcol2 = 'sayings'
+    else:
+      tcol2 = 'fortuneCookies'
+    cur.execute('select ' +tcol +'.content,'+ tcol2 +'.content from '+tcol+' JOIN '+tcol2+' order by rand() limit 1')
+    rows = cur.fetchall()
+  print rows
+  return render_template('mashdisplay.html', trivia = trivia, rows = rows)
 if __name__ == '__main__':                                                                                                                                                         
     app.debug=True                                                                                                                                                                 
     app.run(host='0.0.0.0', port=3000)                                                                                                                                
