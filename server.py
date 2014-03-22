@@ -17,9 +17,13 @@ def submit():
 
 @app.route('/submitType', methods=['POST'])
 def submitType():
+  subType = request.form.get("type")
+  return render_template('submitType.html', subType = subType)
+
+@app.route('/submitStuff', methods=['POST'])
+def submitStuff():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  subType =  request.form.get("type")
   date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
   if subType == 'Laws':
     query = "Insert INTO laws (content, state) VALUES(' ";
