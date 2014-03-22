@@ -13,7 +13,9 @@ def report():
 
 @app.route('/submit')
 def sumbmit():
-  return render_template('submit.html', selectedMenu='submit')                                                                                                                                                                                   
+  stype = request.form.get("submit")
+  return render_template('submitType.html', subType = stype) 
+
 @app.route('/trivia2', methods=['POST'])
 def trivia2():     
   db = utils.db_connect()
