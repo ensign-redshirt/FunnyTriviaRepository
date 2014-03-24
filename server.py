@@ -7,10 +7,32 @@ app = Flask(__name__)
 def mainIndex():
     return render_template('index.html', selectedMenu='Home')
 
+<<<<<<< HEAD
 
 #@app.route('/submitType')
 #def submit():
  #  return render_template('submitType.html', selectedMenu='submit') 
+=======
+@app.route('/submitTrivia')
+def submit():  
+  return render_template('submitTrivia.html', selectedMenu='submit') 
+
+@app.route('/sub2', methods=['POST'])
+def s2():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  t = request.form['triviatype']
+  if(t == 'Fortune Cookies'):
+    return render_template('cookiesub.html')
+  elif(t == 'Laws'):
+    return render_template('lawsub.html')
+  elif(t=='Trivia'):
+    return render_template('triviasub.html')
+  elif(t=='Sayings'):
+    return render_template('sayingsub.html')
+  elif(t=='Meme'):
+    return render_template('memesub.html')
+>>>>>>> 4f371550ce2c19d0b8316d0a6f1eef3eb9a3f7c3
 
 @app.route('/fortuneSub')
 def fs():
@@ -80,10 +102,16 @@ def ms():
 def memeSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+<<<<<<< HEAD
   #subType = request.form['value']
   date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
   query = "INSERT INTO meme (imageLink, content, whenDate) VALUES (' ";
   query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
+=======
+  date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
+  query = "INSERT INTO meme (imageLink, about) VALUES (' ";
+  query += request.form['url'] + "', '" + request.form['about'] +   "')"
+>>>>>>> 4f371550ce2c19d0b8316d0a6f1eef3eb9a3f7c3
   print query
   cur.execute(query)
   db.commit()
