@@ -27,7 +27,11 @@
           <li {% if selectedMenu == "randome" %} class="selected" {% endif %}  >
             <a href="/randome">Randomizer!</a></li>
           <li {% if selectedMenu == "submit" %} class="selected" {% endif %} >
-	    <a href="/submit">Submit your Trivia!</a></li>
+	          <a href="/submitType">Submit your Trivia!</a></li>
+          <li {% if selectedMenu == "fortuneSub" %} class="selected" {% endif %} >
+	          <a href="/submitType">Submit your fortune cookie!</a></li>    
+          <li {% if selectedMenu == "lawSub" %} class="selected" {% endif %} >
+	          <a href="/submitType">Submit your law!</a></li> 
         </ul>
       </div>
     </div>

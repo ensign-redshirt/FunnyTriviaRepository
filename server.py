@@ -11,33 +11,48 @@ def mainIndex():
 def report():
   return render_template('findtrivia.html', selectedMenu='trivia')
 
-@app.route('/submit')
+@app.route('/submitType')
 def submit():
-  return render_template('submit.html', selectedMenu='submit') 
+   return render_template('submitType.html', selectedMenu='submit') 
 
-@app.route('/submitType', methods=['POST'])
-def submitType():
-  subType = request.form.get("type")
-  return render_template('submitType.html', subType = subType)
-
-@app.route('/submitStuff', methods=['POST'])
-def submitStuff():
+@app.route('fortuneSub')
+def fs():
+   return render_template('cookiesub.html', selectedMenu='fortuneSub')
+  
+@app.route('lawSub')
+def ls():
+   return render_template('lawsub.html', selectedMenu='lawSub')
+  
+@app.route('/fortune')
+def fortuneSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO fortuneCookies (content) VALUES(' ";
+  query += request.form['cookie'] + "')"    
+  print query
+  cur.execute(query)
+  db.commit()
+  return (url_for('submission.html'))
+  
+@app.route('/submitType2', methods=['POST'])
+def submitType():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  subType = request.form['value']
   date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
-  if subType == 'Laws':
+  if subType == 'l':
     query = "Insert INTO laws (content, state) VALUES(' ";
     query += request.form['law'] + "', '" + request.form['state'] + "')"
-  elif subType == 'Meme':
+  elif subType == 'm':
     query = "INSERT INTO meme (imageLink, about, whenDate) VALUES (' ";
     query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
-  elif subType == 'Sayings':
+  elif subType == 's':
     query = "Insert INTO sayings (content, author) VALUES(' ";
     query += request.form['saying'] + "', '" + request.form['author'] + "')"
-  elif subType == 'Trivia':
+  elif subType == 't':
     query = "Insert INTO trivia (content) VALUES(' ";
     query += request.form['trivia'] + "')"
-  elif subType == 'Fortune Cookies':
+  elif subType == 'f':
     query = "Insert INTO fortuneCookies (content) VALUES(' ";
     query += request.form['cookie'] + "')"    
   
@@ -131,6 +146,7 @@ def mash():
   rows = cur.fetchall()
   print rows
   return render_template('mashdisplay.html', trivia = trivia, rows = rows)
+
 if __name__ == '__main__':                                                                                                                                                         
     app.debug=True                                                                                                                                                                 
     app.run(host='0.0.0.0', port=3000)                                                                                                                                
