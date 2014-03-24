@@ -7,6 +7,7 @@ app = Flask(__name__)
 def mainIndex():
     return render_template('index.html', selectedMenu='Home')
 
+
 #@app.route('/submitType')
 #def submit():
  #  return render_template('submitType.html', selectedMenu='submit') 
@@ -79,9 +80,9 @@ def ms():
 def memeSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  subType = request.form['value']
+  #subType = request.form['value']
   date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
-  query = "INSERT INTO meme (imageLink, about, whenDate) VALUES (' ";
+  query = "INSERT INTO meme (imageLink, content, whenDate) VALUES (' ";
   query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
   print query
   cur.execute(query)
