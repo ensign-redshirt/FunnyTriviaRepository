@@ -7,17 +7,13 @@ app = Flask(__name__)
 def mainIndex():
     return render_template('index.html', selectedMenu='Home')
 
-@app.route('/trivia')
-def report():
-  return render_template('findtrivia.html', selectedMenu='trivia')
-
-@app.route('/submitType')
-def submit():
-   return render_template('submitType.html', selectedMenu='submit') 
+#@app.route('/submitType')
+#def submit():
+ #  return render_template('submitType.html', selectedMenu='submit') 
 
 @app.route('/fortuneSub')
 def fs():
-   return render_template('cookiesub.html', selectedMenu='fortuneSub')
+   return render_template('cookiesub.html', selectedMenu='fSub')
 
 @app.route('/fortune')
 def fortuneSub():
@@ -32,7 +28,7 @@ def fortuneSub():
 
 @app.route('/lawSub')
 def ls():
-   return render_template('lawsub.html', selectedMenu='lawSub')
+   return render_template('lawsub.html', selectedMenu='lSub')
 
 @app.route('/law')
 def lawSub():
@@ -43,7 +39,7 @@ def lawSub():
   print query
   cur.execute(query)
   db.commit()
-  return (url_for('submission.html'))
+  return render_template('submission.html')
  
 @app.route('/triviaSub')
 def ts():
@@ -58,11 +54,11 @@ def triviaSub():
   print query
   cur.execute(query)
   db.commit()
-  return (url_for('submission.html'))
+  return render_template('submission.html')
  
 @app.route('/saySub')
 def ss():
-  return render_template('sayingsub.html', selectedMenu='saySub')  
+  return render_template('sayingsub.html', selectedMenu='sSub')  
   
 @app.route('/saying')
 def sayingSub():
@@ -73,7 +69,7 @@ def sayingSub():
   print query
   cur.execute(query)
   db.commit()
-  return (url_for('submission.html'))  
+  return render_template('submission.html')
 
 @app.route('/memeSub')
 def ms():
@@ -90,9 +86,9 @@ def memeSub():
   print query
   cur.execute(query)
   db.commit()
-  return (url_for('submission.html')) 
+  return render_template('submission.html') 
   
-@app.route('/submitType2', methods=['POST'])
+"""@app.route('/submitType2', methods=['POST'])
 def submitType():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
@@ -119,6 +115,11 @@ def submitType():
   cur.execute(query)
   db.commit()
   return render_template('submission.html')
+"""
+
+@app.route('/trivia')
+def report():
+  return render_template('findtrivia.html', selectedMenu='trivia')
 
 @app.route('/trivia2', methods=['POST'])
 def trivia2():     
