@@ -15,7 +15,7 @@ def mainIndex():
 def fs():
    return render_template('cookiesub.html', selectedMenu='fSub')
 
-@app.route('/fortune')
+@app.route('/fortune', methods=['POST'])
 def fortuneSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
@@ -30,7 +30,7 @@ def fortuneSub():
 def ls():
    return render_template('lawsub.html', selectedMenu='lSub')
 
-@app.route('/law')
+@app.route('/law', methods=['POST'])
 def lawSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
@@ -45,7 +45,7 @@ def lawSub():
 def ts():
   return render_template('triviasub.html', selectedMenu='tSub')
 
-@app.route('/triviaS')
+@app.route('/triviaS', methods=['POST'])
 def triviaSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
@@ -60,7 +60,7 @@ def triviaSub():
 def ss():
   return render_template('sayingsub.html', selectedMenu='sSub')  
   
-@app.route('/saying')
+@app.route('/saying', methods=['POST'])
 def sayingSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
@@ -75,7 +75,7 @@ def sayingSub():
 def ms():
   return render_template('memesub.html', selectedMenu='mSub')
 
-@app.route('/meme')
+@app.route('/meme', methods=['POST'])
 def memeSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
