@@ -7,9 +7,25 @@ app = Flask(__name__)
 def mainIndex():
     return render_template('index.html', selectedMenu='Home')
 
-#@app.route('/submitType')
-#def submit():
- #  return render_template('submitType.html', selectedMenu='submit') 
+@app.route('/submitTrivia')
+def submit():  
+  return render_template('submitTrivia.html', selectedMenu='submit') 
+
+@app.route('/sub2', methods=['POST'])
+def s2():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  t = request.form['triviatype']
+  if(t == 'Fortune Cookies'):
+    return render_template('cookiesub.html')
+  elif(t == 'Laws'):
+    return render_template('lawsub.html')
+  elif(t=='Trivia'):
+    return render_template('triviasub.html')
+  elif(t=='Sayings'):
+    return render_template('sayingsub.html')
+  elif(t=='Meme'):
+    return render_template('memesub.html')
 
 @app.route('/fortuneSub')
 def fs():
