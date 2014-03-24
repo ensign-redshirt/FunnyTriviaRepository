@@ -15,14 +15,10 @@ def report():
 def submit():
    return render_template('submitType.html', selectedMenu='submit') 
 
-@app.route('fortuneSub')
+@app.route('/fortuneSub')
 def fs():
    return render_template('cookiesub.html', selectedMenu='fortuneSub')
-  
-@app.route('lawSub')
-def ls():
-   return render_template('lawsub.html', selectedMenu='lawSub')
-  
+
 @app.route('/fortune')
 def fortuneSub():
   db = utils.db_connect()
@@ -32,7 +28,69 @@ def fortuneSub():
   print query
   cur.execute(query)
   db.commit()
+  return render_template('submission.html')
+
+@app.route('/lawSub')
+def ls():
+   return render_template('lawsub.html', selectedMenu='lawSub')
+
+@app.route('/law')
+def lawSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO laws (content, state) VALUES(' ";
+  query += request.form['law'] + "', '" + request.form['state'] + "')"  
+  print query
+  cur.execute(query)
+  db.commit()
   return (url_for('submission.html'))
+ 
+@app.route('/triviaSub')
+def ts():
+  return render_template('triviasub.html', selectedMenu='tSub')
+
+@app.route('/triviaS')
+def triviaSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO trivia (content) VALUES(' ";
+  query += request.form['trivia'] + "')"
+  print query
+  cur.execute(query)
+  db.commit()
+  return (url_for('submission.html'))
+ 
+@app.route('/saySub')
+def ss():
+  return render_template('sayingsub.html', selectedMenu='saySub')  
+  
+@app.route('/saying')
+def sayingSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO sayings (content, author) VALUES(' ";
+  query += request.form['saying'] + "', '" + request.form['author'] + "')"
+  print query
+  cur.execute(query)
+  db.commit()
+  return (url_for('submission.html'))  
+
+@app.route('/memeSub')
+def ms():
+  return render_template('memesub.html', selectedMenu='mSub')
+
+@app.route('/meme')
+def memeSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  subType = request.form['value']
+  date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
+  query = "INSERT INTO meme (imageLink, about, whenDate) VALUES (' ";
+  query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
+  print query
+  cur.execute(query)
+  db.commit()
+  return (url_for('submission.html')) 
   
 @app.route('/submitType2', methods=['POST'])
 def submitType():
