@@ -95,10 +95,9 @@ def ms():
 def memeSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  subType = request.form['value']
   date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
-  query = "INSERT INTO meme (imageLink, about, whenDate) VALUES (' ";
-  query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
+  query = "INSERT INTO meme (imageLink, about) VALUES (' ";
+  query += request.form['url'] + "', '" + request.form['about'] +   "')"
   print query
   cur.execute(query)
   db.commit()
