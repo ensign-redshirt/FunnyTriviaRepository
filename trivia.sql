@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS meme
 ( 
   numId INT not null auto_increment,
   primary key (numId),
-  imageLink VARCHAR(2500),
-  whenDate DATE,
+  imageLink VARCHAR(2500) not null,
+  whenDate DATE ,
   content BLOB not null
 );
 
