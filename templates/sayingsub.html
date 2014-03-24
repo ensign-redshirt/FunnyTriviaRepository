@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <h1>Submit a saying</h1>
+<form method = "post" action = "/saying">
+					<table>
+           <tr><td>Saying: </td><td><input type="text" id="saying" name="saying" /></td></tr>
+           <tr><td>Author: </td><td><input type="text" id="author" name="author" /></td></tr> 
+					<tr><td>&nbsp;</td><td><input type="submit" value="Submit Saying" /></td></tr>
+					</table>
+					
+					</form>
+{% endblock %}

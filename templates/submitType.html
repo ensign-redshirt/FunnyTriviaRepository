@@ -1,0 +1,104 @@
+<script type="text/javascript" language="JavaScript">
+  function toggle(value) {
+    if (value=='l')
+      document.getElementById('law').style.visibility = "visible";
+      document.getElementById('state').style.visibility = "visible";
+      document.getElementById('trivia').style.visibility = "hidden";
+      document.getElementById('saying').style.visibility = "hidden";
+      document.getElementById('author').style.visibility = "hidden";
+      document.getElementById('cookie').style.visibility = "hidden";
+      document.getElementById('url').style.visibility = "hidden";
+      document.getElementById('day').style.visibility = "hidden";
+      document.getElementById('month').style.visibility = "hidden";
+      document.getElementById('year').style.visibility = "hidden";
+    else if(value=='t')
+      document.getElementById('trivia').style.visibility = "visible";
+      document.getElementById('law').style.visibility = "hidden";
+      document.getElementById('state').style.visibility = "hidden";     
+      document.getElementById('saying').style.visibility = "hidden";
+      document.getElementById('author').style.visibility = "hidden";
+      document.getElementById('cookie').style.visibility = "hidden";
+      document.getElementById('url').style.visibility = "hidden";
+      document.getElementById('day').style.visibility = "hidden";
+      document.getElementById('month').style.visibility = "hidden";
+      document.getElementById('year').style.visibility = "hidden";
+    else if(value=='s')
+      document.getElementById('saying').style.visibility = "visible";
+      document.getElementById('author').style.visibility = "visible";
+      document.getElementById('law').style.visibility = "hidden";
+      document.getElementById('state').style.visibility = "hidden";     
+      document.getElementById('trivia').style.visibility = "hidden";
+      document.getElementById('cookie').style.visibility = "hidden";
+      document.getElementById('url').style.visibility = "hidden";
+      document.getElementById('day').style.visibility = "hidden";
+      document.getElementById('month').style.visibility = "hidden";
+      document.getElementById('year').style.visibility = "hidden";
+    else if(value=='f')
+      document.getElementById('cookie').style.visibility = "visible";
+      document.getElementById('law').style.visibility = "hidden";
+      document.getElementById('state').style.visibility = "hidden";     
+      document.getElementById('trivia').style.visibility = "hidden";
+      document.getElementById('saying').style.visibility = "hidden";
+      document.getElementById('author').style.visibility = "hidden";
+      document.getElementById('url').style.visibility = "hidden";
+      document.getElementById('day').style.visibility = "hidden";
+      document.getElementById('month').style.visibility = "hidden";
+      document.getElementById('year').style.visibility = "hidden";
+    else if(value=='m')
+      document.getElementById('url').style.visibility = "visible";
+      document.getElementById('day').style.visibility = "visible";
+      document.getElementById('month').style.visibility = "visible";
+      document.getElementById('year').style.visibility = "visible";
+      document.getElementById('law').style.visibility = "hidden";
+      document.getElementById('state').style.visibility = "hidden";     
+      document.getElementById('trivia').style.visibility = "hidden";
+      document.getElementById('saying').style.visibility = "hidden";
+      document.getElementById('author').style.visibility = "hidden";
+      document.getElementById('cookie').style.visibility = "hidden";
+    else
+      document.getElementById('law').style.visibility = "hidden";
+      document.getElementById('state').style.visibility = "hidden";     
+      document.getElementById('trivia').style.visibility = "hidden";
+      document.getElementById('saying').style.visibility = "hidden";
+      document.getElementById('author').style.visibility = "hidden";
+      document.getElementById('cookie').style.visibility = "hidden";
+      document.getElementById('url').style.visibility = "hidden";
+      document.getElementById('day').style.visibility = "hidden";
+      document.getElementById('month').style.visibility = "hidden";
+      document.getElementById('year').style.visibility = "hidden";
+  }
+</script>
+    
+{% extends "layout.html" %}
+<!--Not complete!-->
+{% block content %}
+  <h1>Trivia Submission</h1>
+
+  <form method = "post" action = "/submitType2">
+	<table>
+    <input type="radio" name = "group1" onclick="toggle('l');"/> Law
+    <input type="radio" name = "group1" onclick="toggle('t');"/> Trivia
+    <input type="radio" name = "group1" onclick="toggle('s');"/> Saying
+    <input type="radio" name = "group1" onclick="toggle('f');"/> Fortune Cookie
+    <input type="radio" name = "group1" onclick="toggle('m');" /> Meme
+  
+    <tr><td>Law</td><td><input type="text" id="law" name="law"  /></td></tr>
+    <tr><td>State/Country</td><td><input type="text" id = "state" name="state" /></td><tr>
+   
+    <tr><td>Trivia:</td><td><input type = "text" id="trivia" name = "trivia" /></td></tr>
+ 
+    <tr><td>Saying:</td><td><input type = "text" id="saying" name = "saying" /></td></tr>
+    <tr><td>Who said it (Enter NA if there is no known author):</td><td><input type = "text" id="author" name = "author" /></td></tr>
+  
+    <tr><td>Fortune Cookie:</td><td><input type = "text" id="cookie" name = "cookie" /></td></tr>
+  
+    <tr><td>Meme Image URL:</td><td><input type = "text" id="url" name = "url" /></td></tr>
+    <tr><td>Day found:</td><td><input type = "text" id="date" name = "day" /></td></tr>
+    <tr><td>Month found:</td><td><input type = "text" id="month" name = "month" /></td></tr>
+    <tr><td>Year found:</td><td><input type = "text" id="year" name = "year" /></td></tr>
+    <tr><td>Description:</td><td><input type = "text" id="about" name = "about" /></td></tr>
+ 
+   	<tr><td>&nbsp;</td><td><input type="submit" value="Submit your trivia!" /></td></tr>
+	</table>
+	</form>        
+{% endblock %}
