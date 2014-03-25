@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
-<!--Not complete!-->
+
 {% block content %}
         <h1>Trivia Submission</h1>
-<form method = "post" action = "/submit">
+<form method = "post" action = "/sub2">
 		<table>
 		       <tr><td>What type of trivia would you like to submit?</td><td> 
 					
@@ -11,9 +11,11 @@
 					<option>Trivia</option>
 					<option>Sayings</option>
 					<option>Fortune Cookies</option>
-     			                <option>Meme</option>
+          <option>Meme</option>
 					</select></td></tr>
-					<tr><td>&nbsp;</td><td><input type="submit" value="Submit your trivia!" /></td></tr>
+					
+					<tr><td>&nbsp;</td><td><input type="submit" value="Submit yer Trivia!" /></td></tr>
 					</table>
+					
 					</form>
 {% endblock %}

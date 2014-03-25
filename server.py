@@ -7,14 +7,135 @@ app = Flask(__name__)
 def mainIndex():
     return render_template('index.html', selectedMenu='Home')
 
+@app.route('/submitTrivia')
+def submit():  
+  return render_template('submitTrivia.html', selectedMenu='submit') 
+
+@app.route('/sub2', methods=['POST'])
+def s2():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  t = request.form['triviatype']
+  if(t == 'Fortune Cookies'):
+    return render_template('cookiesub.html')
+  elif(t == 'Laws'):
+    return render_template('lawsub.html')
+  elif(t=='Trivia'):
+    return render_template('triviasub.html')
+  elif(t=='Sayings'):
+    return render_template('sayingsub.html')
+  elif(t=='Meme'):
+    return render_template('memesub.html')
+
+@app.route('/fortuneSub')
+def fs():
+   return render_template('cookiesub.html', selectedMenu='fSub')
+
+@app.route('/fortune', methods=['POST'])
+def fortuneSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO fortuneCookies (content) VALUES(' ";
+  query += request.form['cookie'] + "')"    
+  print query
+  cur.execute(query)
+  db.commit()
+  return render_template('submission.html')
+
+@app.route('/lawSub')
+def ls():
+   return render_template('lawsub.html', selectedMenu='lSub')
+
+@app.route('/law', methods=['POST'])
+def lawSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO laws (content, state) VALUES(' ";
+  query += request.form['law'] + "', '" + request.form['state'] + "')"  
+  print query
+  cur.execute(query)
+  db.commit()
+  return render_template('submission.html')
+ 
+@app.route('/triviaSub')
+def ts():
+  return render_template('triviasub.html', selectedMenu='tSub')
+
+@app.route('/triviaS', methods=['POST'])
+def triviaSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO trivia (content) VALUES(' ";
+  query += request.form['trivia'] + "')"
+  print query
+  cur.execute(query)
+  db.commit()
+  return render_template('submission.html')
+ 
+@app.route('/saySub')
+def ss():
+  return render_template('sayingsub.html', selectedMenu='sSub')  
+  
+@app.route('/saying', methods=['POST'])
+def sayingSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  query = "Insert INTO sayings (content, author) VALUES(' ";
+  query += request.form['saying'] + "', '" + request.form['author'] + "')"
+  print query
+  cur.execute(query)
+  db.commit()
+  return render_template('submission.html')
+
+@app.route('/memeSub')
+def ms():
+  return render_template('memesub.html', selectedMenu='mSub')
+
+@app.route('/meme', methods=['POST'])
+def memeSub():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+
+  date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
+  query = "INSERT INTO meme (imageLink, content, whenDate) VALUES (' ";
+  query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
+  print query
+  cur.execute(query)
+  db.commit()
+  return render_template('submission.html') 
+  
+"""@app.route('/submitType2', methods=['POST'])
+def submitType():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  subType = request.form['value']
+  date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
+  if subType == 'l':
+    query = "Insert INTO laws (content, state) VALUES(' ";
+    query += request.form['law'] + "', '" + request.form['state'] + "')"
+  elif subType == 'm':
+    query = "INSERT INTO meme (imageLink, about, whenDate) VALUES (' ";
+    query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
+  elif subType == 's':
+    query = "Insert INTO sayings (content, author) VALUES(' ";
+    query += request.form['saying'] + "', '" + request.form['author'] + "')"
+  elif subType == 't':
+    query = "Insert INTO trivia (content) VALUES(' ";
+    query += request.form['trivia'] + "')"
+  elif subType == 'f':
+    query = "Insert INTO fortuneCookies (content) VALUES(' ";
+    query += request.form['cookie'] + "')"    
+  
+  print query
+  
+  cur.execute(query)
+  db.commit()
+  return render_template('submission.html')
+"""
+
 @app.route('/trivia')
 def report():
   return render_template('findtrivia.html', selectedMenu='trivia')
-
-@app.route('/submit')
-def sumbmit():
-  stype = request.form.get("submit")
-  return render_template('submitType.html', subType = stype) 
 
 @app.route('/trivia2', methods=['POST'])
 def trivia2():     
@@ -100,6 +221,7 @@ def mash():
   rows = cur.fetchall()
   print rows
   return render_template('mashdisplay.html', trivia = trivia, rows = rows)
+
 if __name__ == '__main__':                                                                                                                                                         
     app.debug=True                                                                                                                                                                 
     app.run(host='0.0.0.0', port=3000)                                                                                                                                

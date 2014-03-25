@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <h1>Submit a law</h1>
+<form method = "post" action = "/law">
+					<table>
+           <tr><td>Law: </td><td><input type="text" id="law" name="law" /></td></tr>
+            <tr><td>State/Country: </td><td><input type="text" id="state" name="state" /></td></tr> 
+					<tr><td>&nbsp;</td><td><input type="submit" value="Submit Law" /></td></tr>
+					</table>
+					
+					</form>
+{% endblock %}

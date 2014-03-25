@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <h1>Submit a fortune cookie</h1>
+<form method = "post" action = "/fortune">
+					<table>
+            <tr><td>Fortune Cookie: </td><td><input type="text" id="cookie" name="cookie" /></td></tr>
+					<tr><td>&nbsp;</td><td><input type="submit" value="Submit Fortune Cookie" /></td></tr>
+					</table>
+					
+					</form>
+{% endblock %}

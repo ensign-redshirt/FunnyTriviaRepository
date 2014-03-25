@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <h1>Submit trivia</h1>
+<form method = "post" action = "/triviaS">
+					<table>
+           <tr><td>Trivia: </td><td><input type="text" id="trivia" name="trivia" /></td></tr>
+					<tr><td>&nbsp;</td><td><input type="submit" value="Submit Trivia" /></td></tr>
+					</table>
+					
+					</form>
+{% endblock %}

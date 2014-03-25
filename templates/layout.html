@@ -5,7 +5,8 @@
   <title>FunnyTriviaFacts</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 
@@ -27,7 +28,17 @@
           <li {% if selectedMenu == "randome" %} class="selected" {% endif %}  >
             <a href="/randome">Randomizer!</a></li>
           <li {% if selectedMenu == "submit" %} class="selected" {% endif %} >
-	    <a href="/submit">Submit your Trivia!</a></li>
+	         <a href="/submitTrivia">Submit your Trivia!</a></li> 
+    <!--      <li {% if selectedMenu == "fSub" %} class="selected" {% endif %} > 
+	          <a href="/fortuneSub">Submit your fortune cookie!</a></li>    
+          <li {% if selectedMenu == "lSub" %} class="selected" {% endif %} >
+	          <a href="/lawSub">Submit your law!</a></li> 
+          <li {% if selectedMenu == "tSub" %} class="selected" {% endif %} >
+	          <a href="/triviaSub">Submit your trivia!</a></li> 
+          <li {% if selectedMenu == "sSub" %} class="selected" {% endif %} >
+	          <a href="/saySub">Submit your saying!</a></li> 
+          <li {% if selectedMenu == "mSub" %} class="selected" {% endif %} >
+	          <a href="/memeSub">Submit your meme!</a></li> -->
         </ul>
       </div>
     </div>
@@ -47,7 +58,7 @@
       </div>
     </div>
     <div id="footer">
-      <p><a href="/">Home</a> | <a href="/report">Report an abduction</a> | <a href="contact.html">Contact Us</a></p>
+      <p><a href="/">Home</a> </p>
       <p>Copyright &copy; simple_light | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">design from HTML5webtemplates.co.uk</a></p>
     </div>
   </div>
