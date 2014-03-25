@@ -80,24 +80,24 @@ def mash():
   randnum = random.randint(1,4)
   randnum2 = random.randint(1,4)
   trivia == 'Combo-Trivia!'
-    if randnum == 1:
-      tcol = 'laws'
-    elif randnum == 2:
-      tcol = 'trivia'
-    elif randnum == 3:
-      tcol = 'sayings'
-    else:  
-      tcol = 'fortuneCookies'
-    if randnum2 == 1:
-      tcol2 = 'laws'
-    elif randnum2 == 2:
-      tcol2 = 'trivia'
-    elif randnum2 == 3:
-      tcol2 = 'sayings'
-    else:
-      tcol2 = 'fortuneCookies'
-    cur.execute('select ' +tcol +'.content,'+ tcol2 +'.content from '+tcol+' JOIN '+tcol2+' order by rand() limit 1')
-    rows = cur.fetchall()
+  if randnum == 1:
+    tcol = 'laws'
+  elif randnum == 2:
+    tcol = 'trivia'
+  elif randnum == 3:
+    tcol = 'sayings'
+  else:  
+    tcol = 'fortuneCookies'
+  if randnum2 == 1:
+    tcol2 = 'laws'
+  elif randnum2 == 2:
+    tcol2 = 'trivia'
+  elif randnum2 == 3:
+    tcol2 = 'sayings'
+  else:
+    tcol2 = 'fortuneCookies'
+  cur.execute('select ' +tcol +'.content,'+ tcol2 +'.content from '+tcol+' JOIN '+tcol2+' order by rand() limit 1')
+  rows = cur.fetchall()
   print rows
   return render_template('mashdisplay.html', trivia = trivia, rows = rows)
 if __name__ == '__main__':                                                                                                                                                         
