@@ -35,8 +35,19 @@ def fs():
 def fortuneSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  query = "Insert INTO fortuneCookies (content) VALUES(' ";
-  query += request.form['cookie'] + "')"    
+  genre = request.form['genre']                                                                                                                              
+  if(genre == "Historical"):                                                                                                                                 
+        genreId = '1'                                                                                                                                          
+  elif(genre == "Boring"):                                                                                                                                   
+        genreId = '2'                                                                                                                                          
+  elif(genre == "Humorous"):                                                                                                                                 
+        genreId = '3'                                                                                                                                          
+  elif(genre == "Sexual"):                                                                                                                                   
+        genreId = '4'                                                                                                                                          
+  elif(genre == "WTF"):                                                                                                                                      
+        genreId = '5'
+  query = "Insert INTO fortuneCookies (content, genreId) VALUES(' ";
+  query += request.form['cookie'] + "', " + genreId + ")"    
   print query
   cur.execute(query)
   db.commit()
@@ -50,8 +61,19 @@ def ls():
 def lawSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  query = "Insert INTO laws (content, state) VALUES(' ";
-  query += request.form['law'] + "', '" + request.form['state'] + "')"  
+  genre = request.form['genre']                                                                                                                              
+  if(genre == "Historical"):                                                                                                                                 
+        genreId = '1'                                                                                                                                          
+  elif(genre == "Boring"):                                                                                                                                   
+        genreId = '2'                                                                                                                                          
+  elif(genre == "Humorous"):                                                                                                                                 
+        genreId = '3'                                                                                                                                          
+  elif(genre == "Sexual"):                                                                                                                                   
+        genreId = '4'                                                                                                                                          
+  elif(genre == "WTF"):                                                                                                                                      
+        genreId = '5'
+  query = "Insert INTO laws (content, state, genreId) VALUES(' ";
+  query += request.form['law'] + "', '" + request.form['state'] + "', " + genreId + ")"  
   print query
   cur.execute(query)
   db.commit()
@@ -65,8 +87,19 @@ def ts():
 def triviaSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  query = "Insert INTO trivia (content) VALUES(' ";
-  query += request.form['trivia'] + "')"
+  genre = request.form['genre']                                                                                                                              
+  if(genre == "Historical"):                                                                                                                                 
+        genreId = '1'                                                                                                                                          
+  elif(genre == "Boring"):                                                                                                                                   
+        genreId = '2'                                                                                                                                          
+  elif(genre == "Humorous"):                                                                                                                                 
+        genreId = '3'                                                                                                                                          
+  elif(genre == "Sexual"):                                                                                                                                   
+        genreId = '4'                                                                                                                                          
+  elif(genre == "WTF"):                                                                                                                                      
+        genreId = '5'
+  query = "Insert INTO trivia (content, genreId) VALUES(' ";
+  query += request.form['trivia'] + "', " + genreId + ")"
   print query
   cur.execute(query)
   db.commit()
@@ -80,8 +113,19 @@ def ss():
 def sayingSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  query = "Insert INTO sayings (content, author) VALUES(' ";
-  query += request.form['saying'] + "', '" + request.form['author'] + "')"
+  genre = request.form['genre']
+  if(genre == "Historical"):                                                                                                                                 
+        genreId = '1'                                                                                                                                          
+  elif(genre == "Boring"):                                                                                                                                   
+        genreId = '2'                                                                                                                                          
+  elif(genre == "Humorous"):                                                                                                                                 
+        genreId = '3'                                                                                                                                          
+  elif(genre == "Sexual"):                                                                                                                                   
+        genreId = '4'                                                                                                                                          
+  elif(genre == "WTF"):                                                                                                                                      
+        genreId = '5'  
+  query = "Insert INTO sayings (content, author, genreId) VALUES(' ";
+  query += request.form['saying'] + "', '" + request.form['author'] + "', " + genreId + ")"
   print query
   cur.execute(query)
   db.commit()
@@ -95,10 +139,19 @@ def ms():
 def memeSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-
-  date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
-  query = "INSERT INTO meme (imageLink, content, whenDate) VALUES (' ";
-  query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
+  genre = request.form['genre']
+  if(genre == "Historical"):
+	genreId = '1'
+  elif(genre == "Boring"):
+        genreId = '2'
+  elif(genre == "Humorous"):
+        genreId = '3'
+  elif(genre == "Sexual"):
+        genreId = '4'
+  elif(genre == "WTF"):
+        genreId = '5'
+  query = "INSERT INTO meme (imageLink, content, genreId ) VALUES (' ";
+  query += request.form['url'] + "', '" + request.form['about'] +  "', " + genreId +  ")"
   print query
   cur.execute(query)
   db.commit()
