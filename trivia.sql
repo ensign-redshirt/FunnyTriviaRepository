@@ -220,4 +220,22 @@ INSERT INTO `meme` (`imageLink`,`content`, `genreId`) VALUES
 ('http://31.media.tumblr.com/652065496e46b017849f1672bb5e8e98/tumblr_mfnvfyduSK1rm7d3so1_500.gif','Everyone loves Nigel Thornberry~!',5),
 ('http://31.media.tumblr.com/4a2ffd08aee61761d15d94de86ccfc32/tumblr_mfugp0fe6P1r2iz18o1_500.gif', 'SMASHING!',5),
 ('http://i2.kym-cdn.com/photos/images/original/000/661/145/819.jpg', 'DOGE',3),
-('http://i2.kym-cdn.com/photos/images/newsfeed/000/581/977/856.png', 'Your world sucks.'3);
+('http://i2.kym-cdn.com/photos/images/newsfeed/000/581/977/856.png', 'Your world sucks.'3),
+('https://i.chzbgr.com/maxW500/8124358912/h3CCDC83A/', '2014 in a nutshell.', 3),
+('https://i.chzbgr.com/maxW500/8123137280/h91F71B33/', 'Bad feather day.', 3),
+('https://i.chzbgr.com/maxW500/5277904384/hA070BD5D/', 'GERMAN WEAPONS ARE APTLY NAMED.', 2),
+('https://i.chzbgr.com/maxW500/4999225856/h6977B797/', 'Ye olde keyboard cat.', 5),
+('https://i.chzbgr.com/maxW500/5540807424/hCAA9905B/', 'Ben Franklin: Pickup artist.', 2),
+('https://i.chzbgr.com/maxW500/4668269312/h01F14E2E/', 'RUN AND TELL THAT.', 2),
+('https://i.chzbgr.com/maxW500/5558334976/hE532DA80/', 'Can''t read my, can''t read my, can''t read my poker face.', 3),
+('http://i.imgur.com/cUAF75O.gif', 'Oppa gangnam style!', 5),
+('http://i.imgur.com/MjJkXb8.gif', 'Hey sexy lady.', 3),
+('http://i.imgur.com/os8EEkh.gif', 'Play any music--he seems to dance along with anything.', 3),
+('http://i.imgur.com/JjQtqWI.gif', 'LOL.', 3),
+('http://i.imgur.com/ZjeZOVr.gif', 'NEVER GONNA GIVE YOU UP.', 3),
+('http://i.imgur.com/engUhe1.gif', 'Horror movie of the year.', 3),
+('http://i.imgur.com/DPl35Sr.gif', 'Ian Malcom: Captain Obvious.', 3),
+('http://i.imgur.com/kwDk0zT.gif', 'What.', 5),
+('http://i.imgur.com/vFytR1r.gif', 'Amy fucking Pond.', 3),
+('http://i.imgur.com/AKUHBoY.gif', 'Bah dum chhhhhh.', 3);
+
