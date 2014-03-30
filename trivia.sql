@@ -21,26 +21,12 @@ CREATE TABLE IF NOT EXISTS meme
   genreId INT
 );
 
-CREATE TABLE IF NOT EXISTS memeGenre
-(
-  genreId INT not null,
-  memeId INT not null,
-  primary key(genreId, memeID)   
-);
-
 CREATE TABLE IF NOT EXISTS trivia
 (
   numId INT not null auto_increment,
   primary key (numId),
   content BLOB not null,
   genreId INT
-);
-
-CREATE TABLE IF NOT EXISTS triviaGenre
-(
-  genreId INT not null,
-  triviaId INT not null,
-  primary key(genreId, triviaID)   
 );
 
 CREATE TABLE IF NOT EXISTS sayings
@@ -52,12 +38,6 @@ CREATE TABLE IF NOT EXISTS sayings
   genreId INT
 );
 
-CREATE TABLE IF NOT EXISTS sayingsGenre
-(
-  genreId INT not null,
-  sayingsId INT not null,
-  primary key(genreId, sayingsID)   
-);
 
 CREATE TABLE IF NOT EXISTS fortuneCookies
 (
@@ -65,14 +45,6 @@ CREATE TABLE IF NOT EXISTS fortuneCookies
   primary key (numId),
   content BLOB not null,
   genreId INT
-);
-
-
-CREATE TABLE IF NOT EXISTS fortuneGenre
-(
-  genreId INT not null,
-  fortuneId INT not null,
-  primary key(genreId, fortuneID)   
 );
 
 CREATE TABLE IF NOT EXISTS laws
@@ -84,14 +56,6 @@ CREATE TABLE IF NOT EXISTS laws
   genreId INT
 );
 
-
-CREATE TABLE IF NOT EXISTS lawGenre
-(
-  genreId INT not null,
-  lawId INT not null,
-  primary key(genreId, lawID)   
-);
-
 /*INSERT INTO laws (content, state) VALUES ('It is illegal to shoot any game other than whales from a moving automobile.', 'TN');
 INSERT INTO laws (content, state) VALUES ('It is illegal to leave your house if you are not wearing underwear.', 'Thailand');
 INSERT INTO laws (content, state) VALUES ('It is illegal to bungee jump.', 'Singapore');
@@ -100,12 +64,18 @@ INSERT INTO sayings (content) VALUES ('"Criminal lawyer" is a redundancy.');
 INSERT INTO trivia (content) VALUES ('A "jiffy" is an actual unit of time for 1/100th of a second.');
 INSERT INTO fortuneCookies (content) VALUES ('A man who goes to bed with itchy butt wakes up with smelly fingers.');*/
 
+INSERT INTO `genre` (`numId`, `genre`) VALUES
+(1, 'boring'),
+(2, 'historical'),
+(3,'humorous'),
+(4, 'sexual'),
+(5, 'wtf');
 --
 -- Initially fill trivia table
 --
 
 INSERT INTO `trivia` (`content`,`genreId`) VALUES
-('A "jiffy" is an actual unit of time for 1/100th of a second.'),
+('A "jiffy" is an actual unit of time for 1/100th of a second.', 1),
 ('A dime has 118 ridges around the edge.'),
 ('A grasshopper has 100 more distinct muscles than a human.'),
 ('An average person laughs about 15 times a day.'),
