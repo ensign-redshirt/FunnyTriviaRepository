@@ -5,20 +5,42 @@ GRANT ALL PRIVILEGES ON triviaDB.* to 'tUser'@'localhost'
 identified by 'tPasswd';
 USE triviaDB;
 
+CREATE TABLE IF NOT EXISTS genre
+(
+  numId INT not null auto_increment,
+  primary key (numId),
+  genre varchar(25)
+);
+
 CREATE TABLE IF NOT EXISTS meme 
 ( 
   numId INT not null auto_increment,
   primary key (numId),
   imageLink VARCHAR(2500) not null,
-  whenDate DATE ,
-  content BLOB not null
+  content BLOB not null,
+  genreId INT
+);
+
+CREATE TABLE IF NOT EXISTS memeGenre
+(
+  genreId INT not null,
+  memeId INT not null,
+  primary key(genreId, memeID)   
 );
 
 CREATE TABLE IF NOT EXISTS trivia
 (
   numId INT not null auto_increment,
   primary key (numId),
-  content BLOB not null
+  content BLOB not null,
+  genreId INT
+);
+
+CREATE TABLE IF NOT EXISTS triviaGenre
+(
+  genreId INT not null,
+  triviaId INT not null,
+  primary key(genreId, triviaID)   
 );
 
 CREATE TABLE IF NOT EXISTS sayings
@@ -27,13 +49,30 @@ CREATE TABLE IF NOT EXISTS sayings
   primary key (numId),
   content BLOB not null,
   author varchar(50),
-  genre varchar(25)
+  genreId INT
 );
+
+CREATE TABLE IF NOT EXISTS sayingsGenre
+(
+  genreId INT not null,
+  sayingsId INT not null,
+  primary key(genreId, sayingsID)   
+);
+
 CREATE TABLE IF NOT EXISTS fortuneCookies
 (
   numId INT not null auto_increment,
   primary key (numId),
-  content BLOB not null 
+  content BLOB not null,
+  genreId INT
+);
+
+
+CREATE TABLE IF NOT EXISTS fortuneGenre
+(
+  genreId INT not null,
+  fortuneId INT not null,
+  primary key(genreId, fortuneID)   
 );
 
 CREATE TABLE IF NOT EXISTS laws
@@ -41,8 +80,16 @@ CREATE TABLE IF NOT EXISTS laws
   numId INT not null auto_increment,
   primary key (numId),
   content BLOB not null,
-  whenDate DATE,
-  state varchar(25)
+  state varchar(25),
+  genreId INT
+);
+
+
+CREATE TABLE IF NOT EXISTS lawGenre
+(
+  genreId INT not null,
+  lawId INT not null,
+  primary key(genreId, lawID)   
 );
 
 /*INSERT INTO laws (content, state) VALUES ('It is illegal to shoot any game other than whales from a moving automobile.', 'TN');
@@ -57,7 +104,7 @@ INSERT INTO fortuneCookies (content) VALUES ('A man who goes to bed with itchy b
 -- Initially fill trivia table
 --
 
-INSERT INTO `trivia` (`content`) VALUES
+INSERT INTO `trivia` (`content`,`genreId`) VALUES
 ('A "jiffy" is an actual unit of time for 1/100th of a second.'),
 ('A dime has 118 ridges around the edge.'),
 ('A grasshopper has 100 more distinct muscles than a human.'),
@@ -98,7 +145,7 @@ INSERT INTO `trivia` (`content`) VALUES
 -- Initially fill sayings table
 --
 
-INSERT INTO `sayings` (`content`, `author`) VALUES
+INSERT INTO `sayings` (`content`, `author`, `genreId`) VALUES
 ('"Criminal lawyer" is a redundancy.','Unknown'),
 ('Youth is such a wonderful thing. What a crime to waste it on children.','George Bernard Shaw'),
 ('Base 8 is just like base 10, if you are missing two fingers.','Tom Lehrer'),
@@ -123,7 +170,7 @@ INSERT INTO `sayings` (`content`, `author`) VALUES
 -- Initially fill fortune cookies table
 --
 
-INSERT INTO `fortuneCookies` (`content`) VALUES
+INSERT INTO `fortuneCookies` (`content`,`genreId`) VALUES
 ('A man who goes to bed with itchy butt wakes up with smelly fingers.'),
 ('Does a man who eats multicolor beans have Technicolor farts?'),
 ('He who drop watch in whisky, wasting time.'),
@@ -163,7 +210,7 @@ INSERT INTO `fortuneCookies` (`content`) VALUES
 -- Initially fill laws table
 --
 
-INSERT INTO `laws` (`state`, `content`) VALUES
+INSERT INTO `laws` (`state`, `content`,`genreId`) VALUES
 ('TN','It is illegal to shoot any game other than whales from a moving automobile.'),
 ('Thailand','It is illegal to leave your house if you are not wearing underwear.'),
 ('Philippines','Cars whose license plates end with a 1 or 2 are not allowed on the roads on Monday, 3 or 4 on Tuesday, 5 or 6 on Wednesday, 7 or 8 on Thursday, and 9 or 0 on Friday.'),
@@ -199,8 +246,8 @@ INSERT INTO `laws` (`state`, `content`) VALUES
 --
 -- Initially fill memes table
 --
-INSERT INTO `meme` (`imageLink`, `whenDate`,`content`) VALUES
-('http://31.media.tumblr.com/652065496e46b017849f1672bb5e8e98/tumblr_mfnvfyduSK1rm7d3so1_500.gif','2014-03-16','Everyone loves Nigel Thornberry~!'),
-('http://31.media.tumblr.com/4a2ffd08aee61761d15d94de86ccfc32/tumblr_mfugp0fe6P1r2iz18o1_500.gif', '2014-03-16','SMASHING!'),
-('http://i2.kym-cdn.com/photos/images/original/000/661/145/819.jpg', '2014-03-18', 'DOGE'),
-('http://i2.kym-cdn.com/photos/images/newsfeed/000/581/977/856.png', '2014-03-18', 'Your world sucks.');
+INSERT INTO `meme` (`imageLink`,`content`, `genreId`) VALUES
+('http://31.media.tumblr.com/652065496e46b017849f1672bb5e8e98/tumblr_mfnvfyduSK1rm7d3so1_500.gif','Everyone loves Nigel Thornberry~!'),
+('http://31.media.tumblr.com/4a2ffd08aee61761d15d94de86ccfc32/tumblr_mfugp0fe6P1r2iz18o1_500.gif', 'SMASHING!'),
+('http://i2.kym-cdn.com/photos/images/original/000/661/145/819.jpg', 'DOGE'),
+('http://i2.kym-cdn.com/photos/images/newsfeed/000/581/977/856.png', 'Your world sucks.');
