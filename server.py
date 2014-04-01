@@ -244,7 +244,7 @@ def chooseGTwo():
     cur.execute('select content from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
   elif ranNum == 5:  
     tCol = 'meme'
-    cur.execute('select imageLink,whenDate,content from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
+    cur.execute('select imageLink,content from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
   rows = cur.fetchall()
   print rows
   
