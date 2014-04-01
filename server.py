@@ -35,7 +35,7 @@ def fs():
 def fortuneSub():
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  genre = request.form['genre']                                                                                                                              
+  genre= request.form['genre']                                                                                                                              
   if(genre == "Historical"):                                                                                                                                 
         genreId = '1'                                                                                                                                          
   elif(genre == "Boring"):                                                                                                                                   
@@ -223,8 +223,8 @@ def randome():
 def gChoose():
   return render_template('genreChoose.html', selectedMenu='genre')
 
-@app.route('/genreChoose2', methods=['GET'])
-def randome():     
+@app.route('/genreChoose2', methods=['POST'])
+def chooseGTwo():     
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
   genre =  request.form.get("genretype")
@@ -232,19 +232,19 @@ def randome():
   
   if ranNum == 1:
     tCol = 'laws'
-    cur.execute('select content,state from '+tCol+' where genreId = (select numId from genre where genre='+genre+') order by rand() limit 5')
+    cur.execute('select content,state from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
   elif ranNum == 2:
     tCol = 'trivia'
-    cur.execute('select content from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+    cur.execute('select content from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
   elif ranNum == 3:
     tCol = 'sayings'
-    cur.execute('select content, author from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+    cur.execute('select content, author from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
   elif ranNum == 4:  
     tCol = 'fortuneCookies'
-    cur.execute('select content from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+    cur.execute('select content from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
   elif ranNum == 5:  
     tCol = 'meme'
-    cur.execute('select imageLink,whenDate,content from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+    cur.execute('select imageLink,whenDate,content from '+tCol+' where genreId = (select numId from genre where genre= \''+genre+'\') order by rand() limit 5')
   rows = cur.fetchall()
   print rows
   
