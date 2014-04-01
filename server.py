@@ -156,35 +156,6 @@ def memeSub():
   cur.execute(query)
   db.commit()
   return render_template('submission.html') 
-  
-"""@app.route('/submitType2', methods=['POST'])
-def submitType():
-  db = utils.db_connect()
-  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  subType = request.form['value']
-  date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
-  if subType == 'l':
-    query = "Insert INTO laws (content, state) VALUES(' ";
-    query += request.form['law'] + "', '" + request.form['state'] + "')"
-  elif subType == 'm':
-    query = "INSERT INTO meme (imageLink, about, whenDate) VALUES (' ";
-    query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
-  elif subType == 's':
-    query = "Insert INTO sayings (content, author) VALUES(' ";
-    query += request.form['saying'] + "', '" + request.form['author'] + "')"
-  elif subType == 't':
-    query = "Insert INTO trivia (content) VALUES(' ";
-    query += request.form['trivia'] + "')"
-  elif subType == 'f':
-    query = "Insert INTO fortuneCookies (content) VALUES(' ";
-    query += request.form['cookie'] + "')"    
-  
-  print query
-  
-  cur.execute(query)
-  db.commit()
-  return render_template('submission.html')
-"""
 
 @app.route('/trivia')
 def report():
