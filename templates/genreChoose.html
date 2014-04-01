@@ -2,16 +2,16 @@
 
 {% block content %}
         <h1>Trivia Generator--3 Random trivia pieces at a time</h1>
-<form method = "post" action = "/trivia2">
+<form method = "post" action = "/genreChoose2">
 		<table>
-		       <tr><td>What type of trivia would you like to see?</td><td> 
+		       <tr><td>What genre of trivia would you like to see?</td><td> 
 					
-					<select name="triviatype">
-					<option>Laws</option>
-					<option>Trivia</option>
-					<option>Sayings</option>
-					<option>Fortune Cookies</option>
-          <option>Meme</option>
+					<select name="genretype">
+					<option>Historical</option>
+					<option>Boring</option>
+					<option>Humorous</option>
+					<option>Sexual</option>
+          				<option>Weird</option>
 					</select></td></tr>
 					
 					<tr><td>&nbsp;</td><td><input type="submit" value="Get yer Trivia!" /></td></tr>

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>This is {{"genre"}} trivia.</h1>
+<h1>Thank you for selecting {{genre}} trivia!</h1>
   <br/><br/>
   {% for entry in rows %}
 {{entry['content']}} {% if "author" in entry %}  -- {{entry['author']}} {%endif%} {% if "state" in entry%} Law is from {{entry['state']}} {%endif%}
