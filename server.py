@@ -256,12 +256,12 @@ def report():
 def randome():     
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  genreId =  request.form.get("genretype")
+  genre =  request.form.get("genretype")
   ranNum = random.randint(1,5)
   
   if ranNum == 1:
     tCol = 'laws'
-    cur.execute('select content,state from '+tCol+' where genreId = '+genreId+' order by rand() limit 5')
+    cur.execute('select content,state from '+tCol+' where genreId = (select genre from '+genreId+' order by rand() limit 5')
   elif ranNum == 2:
     tCol = 'trivia'
     cur.execute('select content from '+tCol+' where genreId = '+genreId+' order by rand() limit 5')
@@ -277,7 +277,7 @@ def randome():
   rows = cur.fetchall()
   print rows
   
-  return render_template('genreDisplay.html', trivia = trivia, rows = rows)
+  return render_template('genreDisplay.html', genre = genre, rows = rows)
 
 @app.route('/mash', methods=['POST','GET'])
 def mash():  
