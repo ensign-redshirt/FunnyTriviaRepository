@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <h1>Trivia Generator--3 Random trivia pieces at a time</h1>
+<form method = "post" action = "/genre2">
+		<table>
+		       <tr><td>What type of trivia would you like to see?</td><td> 
+					
+					<select name="genre">
+					<option>Historical</option>
+					<option>Humorous</option>
+					<option>Boring</option>
+					<option>Sexual</option>
+          <option>WTF</option>
+					</select></td></tr>
+					
+					<tr><td>&nbsp;</td><td><input type="submit" value="Get yer Trivia!" /></td></tr>
+					</table>
+					
+					</form>
+{% endblock %}

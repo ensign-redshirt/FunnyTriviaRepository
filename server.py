@@ -306,6 +306,10 @@ def mash():
   print rows
   return render_template('mashdisplay.html', trivia = trivia, rows = rows)
 
+@app.route('/genre')
+def findG():
+  return render_template('findgenre.html', selectedMenu='genre')
+
 if __name__ == '__main__':                                                                                                                                                         
     app.debug=True                                                                                                                                                                 
     app.run(host='0.0.0.0', port=3000)                                                                                                                                
