@@ -156,6 +156,35 @@ def memeSub():
   cur.execute(query)
   db.commit()
   return render_template('submission.html') 
+  
+"""@app.route('/submitType2', methods=['POST'])
+def submitType():
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  subType = request.form['value']
+  date = '%s-%02i-%02i' % (request.form['year'], int(request.form['month']),int(request.form['day']))
+  if subType == 'l':
+    query = "Insert INTO laws (content, state) VALUES(' ";
+    query += request.form['law'] + "', '" + request.form['state'] + "')"
+  elif subType == 'm':
+    query = "INSERT INTO meme (imageLink, about, whenDate) VALUES (' ";
+    query += request.form['url'] + "', '" + request.form['about'] +  "', '" + date + "')"
+  elif subType == 's':
+    query = "Insert INTO sayings (content, author) VALUES(' ";
+    query += request.form['saying'] + "', '" + request.form['author'] + "')"
+  elif subType == 't':
+    query = "Insert INTO trivia (content) VALUES(' ";
+    query += request.form['trivia'] + "')"
+  elif subType == 'f':
+    query = "Insert INTO fortuneCookies (content) VALUES(' ";
+    query += request.form['cookie'] + "')"    
+  
+  print query
+  
+  cur.execute(query)
+  db.commit()
+  return render_template('submission.html')
+"""
 
 @app.route('/trivia')
 def report():
@@ -192,7 +221,7 @@ def trivia2():
   print rows
   return render_template('triviadisplay.html', trivia=trivia, rows=rows)
 
-@app.route('/randome', methods=['POST','GET'])                                                                                                                                           
+@app.route('/randome', methods=['POST','GET'])
 def randome():     
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
@@ -219,7 +248,38 @@ def randome():
   
   return render_template('randdisplay.html', trivia = trivia, rows = rows)
 
-@app.route('/mash', methods=['POST','GET'])                                                                                                                                           
+@app.route('/genreChoose')
+def gChoose():
+  return render_template('genreChoose.html', selectedMenu='genre')
+
+@app.route('/genreChoose2', methods=['GET'])
+def randome():     
+  db = utils.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  genre =  request.form.get("genretype")
+  ranNum = random.randint(1,5)
+  
+  if ranNum == 1:
+    tCol = 'laws'
+    cur.execute('select content,state from '+tCol+' where genreId = (select numId from genre where genre='+genre+') order by rand() limit 5')
+  elif ranNum == 2:
+    tCol = 'trivia'
+    cur.execute('select content from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+  elif ranNum == 3:
+    tCol = 'sayings'
+    cur.execute('select content, author from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+  elif ranNum == 4:  
+    tCol = 'fortuneCookies'
+    cur.execute('select content from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+  elif ranNum == 5:  
+    tCol = 'meme'
+    cur.execute('select imageLink,whenDate,content from '+tCol+' where genreId = (select numId from genre where genre='+genreId+') order by rand() limit 5')
+  rows = cur.fetchall()
+  print rows
+  
+  return render_template('genreDisplay.html', genre = genre, rows = rows)
+
+@app.route('/mash', methods=['POST','GET'])
 def mash():  
   tcol2 = 'laws'
   randnum = random.randint(1,4)
@@ -252,4 +312,4 @@ def findG():
 
 if __name__ == '__main__':                                                                                                                                                         
     app.debug=True                                                                                                                                                                 
-    app.run(host='0.0.0.0', port=3000)                                                                                                                                
+    app.run(host='0.0.0.0', port=3000)
