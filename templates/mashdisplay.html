@@ -6,8 +6,8 @@ d{% extends "layout.html" %}
 {% if mult == False %}
   {% for entry in rows %}
 {{entry['content']}} {% if "author" in entry %}  -- {{entry['author']}} {%endif%} {% if "state" in entry%} Law is from {{entry['state']}} {%endif%}
-<br><br>
-{% if "whenDate" in entry%} Image was found on  {{entry['whenDate']}} {%endif%} {% if "imageLink" in entry%} <img src='{{entry['imageLink']}}'>{%endif%}
+<br>
+ {% if "imageLink" in entry%} <img src='{{entry['imageLink']}}'><br>{%endif%}
   <br><br>
  {% endfor %}
 {% endif %}

@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS genre
 (
   numId INT not null auto_increment,
   primary key (numId),
-  genre varchar(25)
+  genreName varchar(25)
 );
 
 CREATE TABLE IF NOT EXISTS meme 
@@ -64,7 +64,7 @@ INSERT INTO sayings (content) VALUES ('"Criminal lawyer" is a redundancy.');
 INSERT INTO trivia (content) VALUES ('A "jiffy" is an actual unit of time for 1/100th of a second.');
 INSERT INTO fortuneCookies (content) VALUES ('A man who goes to bed with itchy butt wakes up with smelly fingers.');*/
 
-INSERT INTO `genre` (`numId`, `genre`) VALUES
+INSERT INTO `genre` (`numId`, `genreName`) VALUES
 (1, 'boring'),
 (2, 'historical'),
 (3,'humorous'),
@@ -220,7 +220,7 @@ INSERT INTO `meme` (`imageLink`,`content`, `genreId`) VALUES
 ('http://31.media.tumblr.com/652065496e46b017849f1672bb5e8e98/tumblr_mfnvfyduSK1rm7d3so1_500.gif','Everyone loves Nigel Thornberry~!',5),
 ('http://31.media.tumblr.com/4a2ffd08aee61761d15d94de86ccfc32/tumblr_mfugp0fe6P1r2iz18o1_500.gif', 'SMASHING!',5),
 ('http://i2.kym-cdn.com/photos/images/original/000/661/145/819.jpg', 'DOGE',3),
-('http://i2.kym-cdn.com/photos/images/newsfeed/000/581/977/856.png', 'Your world sucks.'3),
+('http://i2.kym-cdn.com/photos/images/newsfeed/000/581/977/856.png', 'Your world sucks.',3),
 ('https://i.chzbgr.com/maxW500/8124358912/h3CCDC83A/', '2014 in a nutshell.', 3),
 ('https://i.chzbgr.com/maxW500/8123137280/h91F71B33/', 'Bad feather day.', 3),
 ('https://i.chzbgr.com/maxW500/5277904384/hA070BD5D/', 'GERMAN WEAPONS ARE APTLY NAMED.', 2),
@@ -236,6 +236,6 @@ INSERT INTO `meme` (`imageLink`,`content`, `genreId`) VALUES
 ('http://i.imgur.com/engUhe1.gif', 'Horror movie of the year.', 3),
 ('http://i.imgur.com/DPl35Sr.gif', 'Ian Malcom: Captain Obvious.', 3),
 ('http://i.imgur.com/kwDk0zT.gif', 'What.', 5),
-('http://i.imgur.com/vFytR1r.gif', 'Amy fucking Pond.', 3),
+('http://i.imgur.com/vFytR1r.gif', 'Amy Pond.', 3),
 ('http://i.imgur.com/AKUHBoY.gif', 'Bah dum chhhhhh.', 3);
 

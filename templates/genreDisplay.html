@@ -1,14 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Thank you for selecting {{genre}} trivia!</h1>
-  <br/><br/>
+<h1>Thank you for selecting {{genre}} genre from {{trivia}}</h1>
+<sup>If there are no entries displayed, it means there are no entries of that genre in that category!</sup>
+<br><br><p><p>
   {% for entry in rows %}
 {{entry['content']}} {% if "author" in entry %}  -- {{entry['author']}} {%endif%} {% if "state" in entry%} Law is from {{entry['state']}} {%endif%}
-<br><br>
-{% if "whenDate" in entry%} Image was found on  {{entry['whenDate']}} {%endif%} {% if "imageLink" in entry%} <img src='{{entry['imageLink']}}'>{%endif%}
-  <br><br>
+<br>
+{% if "imageLink" in entry%} <img src='{{entry['imageLink']}}'><br>{%endif%}
+  <br>
  {% endfor %}
-  <br/><br/>
+  <br/>
 
 {% endblock %}
