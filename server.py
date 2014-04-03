@@ -185,7 +185,7 @@ def trivia2():
     #cur.execute('select content from ' + tCol + ';')
   elif trivia == 'Meme':
     tCol = 'meme'
-    cur.execute('select content, whenDate, imageLink from '+tCol+' order by rand() limit 3')
+    cur.execute('select content, imageLink from '+tCol+' order by rand() limit 3')
     #cur.execute('select content from ' + tCol + ';')
     
   rows = cur.fetchall()
@@ -213,7 +213,7 @@ def randome():
     cur.execute('select content from '+tCol+' order by rand() limit 1')
   elif ranNum == 5:  
     tCol = 'meme'
-    cur.execute('select imageLink,whenDate,content from '+tCol+' order by rand() limit 1')
+    cur.execute('select imageLink,content from '+tCol+' order by rand() limit 1')
   rows = cur.fetchall()
   print rows
   
@@ -224,7 +224,7 @@ def gChoose():
   return render_template('genreChoose.html', selectedMenu='genre')
 
 @app.route('/genreChoose2', methods=['POST','GET'])
-def randome():     
+def gMain():     
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
   genre =  request.form.get("genreT")
