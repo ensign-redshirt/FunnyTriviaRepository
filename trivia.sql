@@ -9,8 +9,10 @@ CREATE TABLE IF NOT EXISTS genre
 (
   numId INT not null auto_increment,
   primary key (numId),
-  genreName varchar(25)
+  genreName varchar(25),
 );
+CREATE INDEX genre_type
+ON genre (genreName);
 
 CREATE TABLE IF NOT EXISTS meme 
 ( 
@@ -20,6 +22,8 @@ CREATE TABLE IF NOT EXISTS meme
   content BLOB not null,
   genreId INT
 );
+CREATE INDEX genre_type
+ON meme (genreId);
 
 CREATE TABLE IF NOT EXISTS trivia
 (
@@ -28,6 +32,8 @@ CREATE TABLE IF NOT EXISTS trivia
   content BLOB not null,
   genreId INT
 );
+CREATE INDEX genre_type
+ON trivia (genreId);
 
 CREATE TABLE IF NOT EXISTS sayings
 (
@@ -37,7 +43,8 @@ CREATE TABLE IF NOT EXISTS sayings
   author varchar(50),
   genreId INT
 );
-
+CREATE INDEX genre_type
+ON sayings (genreId);
 
 CREATE TABLE IF NOT EXISTS fortuneCookies
 (
@@ -46,6 +53,8 @@ CREATE TABLE IF NOT EXISTS fortuneCookies
   content BLOB not null,
   genreId INT
 );
+CREATE INDEX genre_type
+ON fortuneCookies (genreId);
 
 CREATE TABLE IF NOT EXISTS laws
 (
@@ -55,7 +64,8 @@ CREATE TABLE IF NOT EXISTS laws
   state varchar(25),
   genreId INT
 );
-
+CREATE INDEX genre_type
+ON laws (genreId);
 
 CREATE VIEW genreView AS SELECT numId, genreName FROM genre;
 CREATE VIEW memeView AS SELECT numId, content, imageLink, genreId FROM meme;

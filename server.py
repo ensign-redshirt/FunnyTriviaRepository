@@ -224,12 +224,8 @@ def randome():
 def gChoose():
   return render_template('genreChoose.html', selectedMenu='genre')
 
-@app.route('/genreChoose2', methods=['POST','GET'])
-<<<<<<< HEAD
-def gMain():     
-=======
+@app.route('/genreChoose2', methods=['POST','GET'])    
 def gChoose2():     
->>>>>>> 5c8b3cba2f7239074592182908935112660bb793
   db = utils.db_connect()
   cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
   genre =  request.form.get("genreT")
