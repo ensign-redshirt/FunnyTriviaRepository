@@ -210,7 +210,7 @@ def randome():
     cur.execute('select content, author from '+tCol+' order by rand() limit 1')
   elif ranNum == 4:  
     tCol = 'fortuneCookies'
-    cur.execute('select content from '+tCol+' order by rand() limit 1;')
+    cur.execute('select content from '+tCol+' order by rand() limit 1')
     print 'select content from '+tCol+' order by rand() limit 1'
   elif ranNum == 5:  
     tCol = 'meme'
