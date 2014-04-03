@@ -56,6 +56,14 @@ CREATE TABLE IF NOT EXISTS laws
   genreId INT
 );
 
+
+CREATE VIEW genreView AS SELECT numId, genreName FROM genre;
+CREATE VIEW memeView AS SELECT numId, content, imageLink, genreId FROM meme;
+CREATE VIEW sayingsView AS SELECT numId, content, author, genreId FROM sayings;
+CREATE VIEW fortuneView AS SELECT numId, content, genreId FROM fortuneCookies;
+CREATE VIEW triviaView AS SELECT numId, content, genreId FROM trivia;
+CREATE VIEW lawView AS SELECT numId, content, state FROM laws;
+
 /*INSERT INTO laws (content, state) VALUES ('It is illegal to shoot any game other than whales from a moving automobile.', 'TN');
 INSERT INTO laws (content, state) VALUES ('It is illegal to leave your house if you are not wearing underwear.', 'Thailand');
 INSERT INTO laws (content, state) VALUES ('It is illegal to bungee jump.', 'Singapore');
